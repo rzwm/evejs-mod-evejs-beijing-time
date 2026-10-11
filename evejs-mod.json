@@ -1,0 +1,40 @@
+{
+  "author": {
+    "id": "au-mv2j36e77ld7",
+    "keyId": "c790c8221d09",
+    "name": "蓝星指挥官"
+  },
+  "category": "玩法",
+  "changelog": "实现基本功能。",
+  "conflicts": [],
+  "delisted": false,
+  "description": "把客户端的时间显示对齐北京时间(UTC+8)：左下角时钟、时钟悬浮提示、聊天窗口的消息时间戳、日历/月球采矿排程/钱包流水等读本地化时间差的界面。做法是把客户端 tq/code.ccp 里 4 个 .pyj 条目的 'optic' 常量换成 'ccp'（不重新编译、不改字节码、不动 start.ini、不动服务端文件）。启动服务端时自动打一次，打之前会先备份 code.ccp 并逐条自校验；客户端正在运行时会跳过。",
+  "displayName": "Beijing-time",
+  "downloadUrls": [
+    {
+      "mirror": "github",
+      "priority": 1,
+      "url": "https://github.com/rzwm/evejs-mod-evejs-beijing-time/releases/download/v1.1.0/evejs-beijing-time-1.1.0.zip"
+    }
+  ],
+  "evejsVersions": [
+    "0.12.9"
+  ],
+  "featured": false,
+  "highlights": [],
+  "history": [],
+  "id": "evejs-beijing-time",
+  "publishedAt": "2026-10-11",
+  "readme": [
+    "让 **EVE 客户端的时间显示对齐北京时间（UTC+8）**：左下角 Neocom 时钟、时钟悬浮提示、聊天窗口的\n消息时间戳（`[HH:MM:SS]`）、日历 / 月球采矿排程 / 钱包流水这类读本地化时间差的界面。",
+    "> 实现方式照搬参考实现「10-左下角时间对齐北京时间」（同一作者在客户端侧的 Python 补丁）：\n> **只把客户端 `tq/code.ccp` 里 4 个 `.pyj` 条目里的各一处字符串常量 `'optic'` 换成 `'ccp'`**，\n> 不重新编译、不改字节码、不动 `start.ini`、不动服务端任何文件。",
+    "| | |\n|---|---|\n| 改哪一侧 | **客户端**（`tq/code.ccp`），服务端只负责\"执行这次改动\" |\n| 改动量 | 4 个条目 × 1 处常量；条目数据从 `zlib.compress(原, 9)` 重压，整包缩短 63 字节 |\n| 触发时机 | 启动服务端时自动打一次；**打的时候游戏必须没在跑** |\n| 幂等 | 已打过就不再动；客户端被升级 / 校验覆盖后，下次启动服务端会自动补上 |\n| 可回退 | 原文件备份为 `code.ccp.bak-beijingtime`，逐字节还原 |",
+    "---"
+  ],
+  "repo": "https://github.com/rzwm/evejs-mod-evejs-beijing-time",
+  "requiresRestart": true,
+  "sha256": "2320d1086fefb63fccc726253edc87e9c2ccd5b8fcc35b30495b42962165d1fd",
+  "sizeBytes": 47831,
+  "tags": [],
+  "version": "1.1.0"
+}
